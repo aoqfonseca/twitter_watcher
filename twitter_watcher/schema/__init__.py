@@ -9,10 +9,11 @@ listener_schema = {
     "properties": {
         "usernames": {"type": "array", "items":  {"type": "string"}},
         "hashtags": {"type": "array", "items":  {"type": "string"}},
+        "callback": {"type": "string"},
         "startDate": {"type": "string"},
         "endDate": {"type": "string"}
     },
-    "required": ["usernames", "hashtags", "startDate", "endDate"]
+    "required": ["usernames", "hashtags", "callback", "startDate", "endDate"]
 }
 
 logger = logging.getLogger('shema')

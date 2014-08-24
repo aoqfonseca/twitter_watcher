@@ -9,6 +9,7 @@ class SchemaTestCase(unittest.TestCase):
     def test_return_true_for_valid_json(self):
         json = {'usernames': ['@aoqfonseca'],
                 'hashtags': ['#testing'],
+                'callback': "http://globo.com",
                 'startDate': '20140101T00:00',
                 'endDate': '20140101T00:00'}
 
@@ -16,25 +17,37 @@ class SchemaTestCase(unittest.TestCase):
 
     def test_return_false_for_required_fields(self):
         json = {'usernames': ['@aoqfonseca'],
+                'callback': "http://globo.com",
                 'startDate': '20140101T00:00',
                 'endDate': '20140101T00:00'}
 
         assert schema.check_json_listener(json) is False
 
         json = {'hashtags': ['#testing'],
+                'callback': "http://globo.com",
                 'startDate': '20140101T00:00',
                 'endDate': '20140101T00:00'}
 
         assert schema.check_json_listener(json) is False
 
         json = {'usernames': ['@aoqfonseca'],
+                'callback': "http://globo.com",
                 'hashtags': ['#testing'],
                 'endDate': '20140101T00:00'}
 
         assert schema.check_json_listener(json) is False
 
         json = {'usernames': ['@aoqfonseca'],
+                'callback': "http://globo.com",
                 'hashtags': ['#testing'],
                 'startDate': '20140101T00:00'}
+
+        assert schema.check_json_listener(json) is False
+
+        json = {'usernames': ['@aoqfonseca'],
+                'hashtags': ['#testing'],
+                'startDate': '20140101T00:00',
+                'endDate': '20140101T00:00'}
+
 
         assert schema.check_json_listener(json) is False
