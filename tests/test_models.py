@@ -15,6 +15,10 @@ class ListernerModel(unittest.TestCase):
 	@classmethod
 	def setUpClass(cls):
 		connect('twitter_watcher_test')
+	
+	def tearDown(self):
+		for listener in Listener.objects:
+			listener.delete()
 
 	def test_subclass_document(self):
 		assert issubclass(Listener, Document)
@@ -51,6 +55,15 @@ class ListernerModel(unittest.TestCase):
 		listerner = Listener.objects(id=listener.id)
 		self.assertEquals(listener.usernames, ['@teste1', '@teste2'])
 		self.assertEquals(listener.hashtags, ['#blabla', '#blabla2'])
+
+
+class ListenerTestCase(unittest.TestCase):
+	@classmethod
+	def setUpClass(cls):
+		connect('twitter_watcher_test')
+
+
+
 
 
 
