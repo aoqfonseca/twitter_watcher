@@ -5,7 +5,7 @@ from mongoengine.fields import ListField, StringField, DateTimeField
 
 
 class Listener(Document):
-	usernames = ListField(StringField)
-	hashtags = ListField(StringField)
+	usernames = ListField(StringField())
+	hashtags = ListField(StringField())
 	start_date = DateTimeField()
 	end_date = DateTimeField()

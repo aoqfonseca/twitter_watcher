@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 import unittest
 
+from datetime import datetime
+
+from mongoengine import connect
 from mongoengine import Document
 from mongoengine.fields import ListField, StringField, DateTimeField
 from twitter_watcher.db import Listener
@@ -8,6 +11,10 @@ from twitter_watcher.db import Listener
 
 
 class ListernerModel(unittest.TestCase):
+
+	@classmethod
+	def setUpClass(cls):
+		connect('twitter_watcher_test')
 
 	def test_subclass_document(self):
 		assert issubclass(Listener, Document)
@@ -27,5 +34,24 @@ class ListernerModel(unittest.TestCase):
 	def test_has_field_end_date(self):
 		assert hasattr(Listener, 'end_date')
 		assert isinstance(Listener.end_date, DateTimeField)
+
+
+
+	def test_create_a_listener(self):
+		listener = Listener(usernames=['@teste1', '@teste2'], 
+							hashtags=['#blabla', '#blabla2'],
+							start_date=datetime.now(),
+							end_date=datetime.now())
+
+		assert listener.id is None
+		listener.save()		
+		assert listener.id is not None
+
+		#finding
+		listerner = Listener.objects(id=listener.id)
+		self.assertEquals(listener.usernames, ['@teste1', '@teste2'])
+		self.assertEquals(listener.hashtags, ['#blabla', '#blabla2'])
+
+
 
 
