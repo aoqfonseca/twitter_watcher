@@ -2,4 +2,5 @@ Flask
 pytest
 pytest-cov
 jsonschema
+mongoengine
 flake8
