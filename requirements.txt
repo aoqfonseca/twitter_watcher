@@ -3,4 +3,6 @@ pytest
 pytest-cov
 jsonschema
 mongoengine
+requests
+mock
 flake8
