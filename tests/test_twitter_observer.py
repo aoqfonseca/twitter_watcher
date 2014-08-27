@@ -14,22 +14,24 @@ class TwitterObserverTestCase(unittest.TestCase):
 		assert hasattr(ObserverTwitter, 'on_message')
 		assert callable(ObserverTwitter.on_message)
 
-	def test_have_a_run(self):
-		assert hasattr(ObserverTwitter, 'run')
-		assert callable(ObserverTwitter.run)
-
-	def test_on_message_raise_not_implemented_error(self):
-		observer = ObserverTwitter()
+	def test_raise_value_error_for_username_not_a_list(self):
 		try:
-			observer.on_message(None)
+			observer = ObserverTwitter(url_callback='http://teste.com', usernames='', hashtags=[])
 			assert False
-		except NotImplementedError, error:
+		except ValueError, error:
 			assert True
 
-	def test_run_raise_not_implemented_error(self):
-		observer = ObserverTwitter()
+	def test_raise_value_error_for_username_not_a_list(self):
 		try:
-			observer.run()
+			observer = ObserverTwitter(url_callback='http://teste.com', usernames=[], hashtags='tests')
+			assert False
+		except ValueError, error:
+			assert True
+
+	def test_on_message_raise_not_implemented_error(self):
+		observer = ObserverTwitter(url_callback='http://teste.com', usernames=[], hashtags=[])
+		try:
+			observer.on_message(None)
 			assert False
 		except NotImplementedError, error:
 			assert True

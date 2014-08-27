@@ -60,38 +60,3 @@ class ListernerModel(unittest.TestCase):
 		listerner = Listener.objects(id=listener.id)
 		self.assertEquals(listener.usernames, ['@teste1', '@teste2'])
 		self.assertEquals(listener.hashtags, ['#blabla', '#blabla2'])
-
-
-class ListenerTestCase(unittest.TestCase):
-	
-	@classmethod
-	def setUpClass(cls):
-		connect('twitter_watcher_test')
-
-	def setUp(self):
-		self.listener = Listener(usernames=['@test'],
-								 hashtags=['#test'], 
-								 start_date= datetime.now(),
-								 end_date=datetime.now())
-
-		self.listener.save()
-
-	def tearDown(self):
-		self.listener.delete()
-
-
-	def test_have_a_on_message_method(self):
-		assert hasattr(self.listener, 'on_message')
-		assert callable(self.listener.on_message)
-
-	def test_have_a_run(self):
-		assert hasattr(self.listener, 'run')
-		assert callable(self.listener.run)
-
-
-
-
-
-
-
-
