@@ -21,7 +21,7 @@ class ObserverTwitter(Callback):
 			raise ValueError("hashtags should be a list")
 
 	def on_message(self, tweet):
-		raise NotImplementedError()
+		pass
 
 	def json_data(self):
 		return self.tweet

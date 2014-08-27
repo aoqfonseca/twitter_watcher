@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import unittest
+import mock
 
-from twitter_watcher.observers.twitter import ObserverTwitter
+from twitter_watcher.observers import ObserverTwitter
 from twitter_watcher.actions import Callback
 
 
@@ -28,10 +29,17 @@ class TwitterObserverTestCase(unittest.TestCase):
 		except ValueError, error:
 			assert True
 
-	def test_on_message_raise_not_implemented_error(self):
-		observer = ObserverTwitter(url_callback='http://teste.com', usernames=[], hashtags=[])
-		try:
-			observer.on_message(None)
-			assert False
-		except NotImplementedError, error:
-			assert True
+	def test_send_message_to_callback_url(self):
+		tweet = {
+			u'userId': 123456L,
+			u'hastags: ['#test'],
+			u'message': 'Lorem ipsum'
+		}
+
+		observer = ObserverTwitter(url_callback='http://teste.com',
+								   usernames=['@teste'],
+								   hashtags=['#test'])
+
+		observer.send = mock.MagicMock(return_value=True)
+		observer.on_message(tweet)
+		observer.send.assert_called_once_with()

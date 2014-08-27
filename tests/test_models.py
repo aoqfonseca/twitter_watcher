@@ -8,7 +8,7 @@ from mongoengine import Document
 from mongoengine.fields import ListField, StringField, DateTimeField
 
 from twitter_watcher.db.models import Listener
-from twitter_watcher.observers.twitter import ObserverTwitter
+from twitter_watcher.observers import ObserverTwitter
 
 
 
