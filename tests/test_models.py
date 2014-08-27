@@ -6,7 +6,9 @@ from datetime import datetime
 from mongoengine import connect
 from mongoengine import Document
 from mongoengine.fields import ListField, StringField, DateTimeField
+
 from twitter_watcher.db.models import Listener
+from twitter_watcher.observers.twitter import ObserverTwitter
 
 
 
@@ -22,6 +24,9 @@ class ListernerModel(unittest.TestCase):
 
 	def test_subclass_document(self):
 		assert issubclass(Listener, Document)
+
+	def test_subclass_action_callback(self):
+		assert issubclass(Listener, ObserverTwitter)
 
 	def test_has_field_usernames(self):
 		assert hasattr(Listener, 'usernames')

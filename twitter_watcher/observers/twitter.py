@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 
+from twitter_watcher.actions import Callback
 
-class ObserverTwitter(object):
+
+class ObserverTwitter(Callback):
 	""" Listener/Observer for new tweet event """
 
 	def on_message(self, tweet):
-		pass
+		raise NotImplementedError()
 
 	def run(self):
-		pass
+		raise NotImplementedError()
