@@ -3,6 +3,7 @@ import unittest
 
 from twitter_watcher import server
 
+
 class ServerTestCase(unittest.TestCase):
 
     @classmethod
