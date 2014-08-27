@@ -17,7 +17,9 @@ class TwitterObserverTestCase(unittest.TestCase):
 
 	def test_raise_value_error_for_username_not_a_list(self):
 		try:
-			observer = ObserverTwitter(url_callback='http://teste.com', usernames='', hashtags=[])
+			observer = ObserverTwitter(url_callback='http://teste.com',
+									   usernames='',
+									   hashtags=[])
 			assert False
 		except ValueError, error:
 			assert True
