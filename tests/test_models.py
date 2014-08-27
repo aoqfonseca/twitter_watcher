@@ -6,7 +6,7 @@ from datetime import datetime
 from mongoengine import connect
 from mongoengine import Document
 from mongoengine.fields import ListField, StringField, DateTimeField
-from twitter_watcher.db import Listener
+from twitter_watcher.db.models import Listener
 
 
 
