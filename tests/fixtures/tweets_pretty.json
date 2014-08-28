@@ -1,0 +1,485 @@
+[
+    {
+        "contributors": null,
+        "coordinates": null,
+        "created_at": "Wed Aug 06 21:47:55 +0000 2014",
+        "entities": {
+            "hashtags": [
+                {
+                    "indices": [
+                        76,
+                        84
+                    ],
+                    "text": "TDC2014"
+                },
+                {
+                    "indices": [
+                        98,
+                        106
+                    ],
+                    "text": "bigdata"
+                }
+            ],
+            "symbols": [],
+            "urls": [
+                {
+                    "display_url": "thedevelopersconference.com.br/tdc/2014/saopa\u2026",
+                    "expanded_url": "http://www.thedevelopersconference.com.br/tdc/2014/saopaulo/trilha-bigdata",
+                    "indices": [
+                        126,
+                        140
+                    ],
+                    "url": "http://t.co/pTBlWzTvVd"
+                }
+            ],
+            "user_mentions": [
+                {
+                    "id": 2244994945,
+                    "id_str": "2244994945",
+                    "indices": [
+                        3,
+                        14
+                    ],
+                    "name": "TwitterDev",
+                    "screen_name": "TwitterDev"
+                },
+                {
+                    "id": 6253282,
+                    "id_str": "6253282",
+                    "indices": [
+                        61,
+                        72
+                    ],
+                    "name": "Twitter API",
+                    "screen_name": "twitterapi"
+                }
+            ]
+        },
+        "favorite_count": 0,
+        "favorited": false,
+        "geo": null,
+        "id": 497137014530383872,
+        "id_str": "497137014530383872",
+        "in_reply_to_screen_name": null,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "lang": "en",
+        "place": null,
+        "possibly_sensitive": false,
+        "retweet_count": 42,
+        "retweeted": false,
+        "retweeted_status": {
+            "contributors": null,
+            "coordinates": null,
+            "created_at": "Wed Aug 06 21:46:12 +0000 2014",
+            "entities": {
+                "hashtags": [
+                    {
+                        "indices": [
+                            60,
+                            68
+                        ],
+                        "text": "TDC2014"
+                    },
+                    {
+                        "indices": [
+                            82,
+                            90
+                        ],
+                        "text": "bigdata"
+                    }
+                ],
+                "symbols": [],
+                "urls": [
+                    {
+                        "display_url": "thedevelopersconference.com.br/tdc/2014/saopa\u2026",
+                        "expanded_url": "http://www.thedevelopersconference.com.br/tdc/2014/saopaulo/trilha-bigdata",
+                        "indices": [
+                            110,
+                            132
+                        ],
+                        "url": "http://t.co/pTBlWzTvVd"
+                    }
+                ],
+                "user_mentions": [
+                    {
+                        "id": 6253282,
+                        "id_str": "6253282",
+                        "indices": [
+                            45,
+                            56
+                        ],
+                        "name": "Twitter API",
+                        "screen_name": "twitterapi"
+                    }
+                ]
+            },
+            "favorite_count": 58,
+            "favorited": false,
+            "geo": null,
+            "id": 497136584211574785,
+            "id_str": "497136584211574785",
+            "in_reply_to_screen_name": null,
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "lang": "en",
+            "place": null,
+            "possibly_sensitive": false,
+            "retweet_count": 42,
+            "retweeted": false,
+            "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+            "text": "Learn how to consume millions of tweets with @twitterapi at #TDC2014 in S\u00e3o Paulo #bigdata tomorrow at 2:10pm http://t.co/pTBlWzTvVd",
+            "truncated": false,
+            "user": {
+                "contributors_enabled": false,
+                "created_at": "Sat Dec 14 04:35:55 +0000 2013",
+                "default_profile": false,
+                "default_profile_image": false,
+                "description": "Developers and Platform Relations @Twitter. We are developer advocates. We can't answer all your questions, but we listen to all of them!",
+                "entities": {
+                    "description": {
+                        "urls": []
+                    },
+                    "url": {
+                        "urls": [
+                            {
+                                "display_url": "dev.twitter.com",
+                                "expanded_url": "https://dev.twitter.com/",
+                                "indices": [
+                                    0,
+                                    23
+                                ],
+                                "url": "https://t.co/66w26cd6ZO"
+                            }
+                        ]
+                    }
+                },
+                "favourites_count": 161,
+                "follow_request_sent": false,
+                "followers_count": 10355,
+                "following": false,
+                "friends_count": 1429,
+                "geo_enabled": true,
+                "id": 2244994945,
+                "id_str": "2244994945",
+                "is_translation_enabled": false,
+                "is_translator": false,
+                "lang": "en",
+                "listed_count": 169,
+                "location": "Internet",
+                "name": "TwitterDev",
+                "notifications": false,
+                "profile_background_color": "FFFFFF",
+                "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+                "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+                "profile_background_tile": false,
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/2244994945/1396995246",
+                "profile_image_url": "http://pbs.twimg.com/profile_images/431949550836662272/A6Ck-0Gx_normal.png",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/431949550836662272/A6Ck-0Gx_normal.png",
+                "profile_link_color": "0084B4",
+                "profile_sidebar_border_color": "FFFFFF",
+                "profile_sidebar_fill_color": "DDEEF6",
+                "profile_text_color": "333333",
+                "profile_use_background_image": false,
+                "protected": false,
+                "screen_name": "TwitterDev",
+                "statuses_count": 532,
+                "time_zone": "Pacific Time (US & Canada)",
+                "url": "https://t.co/66w26cd6ZO",
+                "utc_offset": -25200,
+                "verified": true
+            }
+        },
+        "source": "<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
+        "text": "RT @TwitterDev: Learn how to consume millions of tweets with @twitterapi at #TDC2014 in S\u00e3o Paulo #bigdata tomorrow at 2:10pm http://t.co/p\u2026",
+        "truncated": false,
+        "user": {
+            "contributors_enabled": false,
+            "created_at": "Wed May 23 06:01:13 +0000 2007",
+            "default_profile": false,
+            "default_profile_image": false,
+            "description": "The Real Twitter API. I tweet about API changes, service issues and happily answer questions about Twitter and our API. Don't get an answer? It's on my website.",
+            "entities": {
+                "description": {
+                    "urls": []
+                },
+                "url": {
+                    "urls": [
+                        {
+                            "display_url": "dev.twitter.com",
+                            "expanded_url": "http://dev.twitter.com",
+                            "indices": [
+                                0,
+                                22
+                            ],
+                            "url": "http://t.co/78pYTvWfJd"
+                        }
+                    ]
+                }
+            },
+            "favourites_count": 26,
+            "follow_request_sent": false,
+            "followers_count": 2323664,
+            "following": false,
+            "friends_count": 48,
+            "geo_enabled": true,
+            "id": 6253282,
+            "id_str": "6253282",
+            "is_translation_enabled": false,
+            "is_translator": false,
+            "lang": "en",
+            "listed_count": 12820,
+            "location": "San Francisco, CA",
+            "name": "Twitter API",
+            "notifications": false,
+            "profile_background_color": "C0DEED",
+            "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/656927849/miyt9dpjz77sc0w3d4vj.png",
+            "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/656927849/miyt9dpjz77sc0w3d4vj.png",
+            "profile_background_tile": true,
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1347394302",
+            "profile_image_url": "http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png",
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png",
+            "profile_link_color": "0084B4",
+            "profile_sidebar_border_color": "C0DEED",
+            "profile_sidebar_fill_color": "DDEEF6",
+            "profile_text_color": "333333",
+            "profile_use_background_image": true,
+            "protected": false,
+            "screen_name": "twitterapi",
+            "statuses_count": 3514,
+            "time_zone": "Pacific Time (US & Canada)",
+            "url": "http://t.co/78pYTvWfJd",
+            "utc_offset": -25200,
+            "verified": true
+        }
+    },
+    {
+        "contributors": null,
+        "coordinates": null,
+        "created_at": "Tue Jul 22 16:23:51 +0000 2014",
+        "entities": {
+            "hashtags": [],
+            "symbols": [],
+            "urls": [
+                {
+                    "display_url": "plus.google.com/events/cvlnd0b\u2026",
+                    "expanded_url": "https://plus.google.com/events/cvlnd0b4m8mbe887pjv30i0kan8",
+                    "indices": [
+                        109,
+                        132
+                    ],
+                    "url": "https://t.co/pHnC9KFqm0"
+                },
+                {
+                    "display_url": "youtube.com/watch?v=_3wzSd\u2026",
+                    "expanded_url": "https://www.youtube.com/watch?v=_3wzSdJ76o4",
+                    "indices": [
+                        139,
+                        140
+                    ],
+                    "url": "https://t.co/WrW9hJnJHN"
+                }
+            ],
+            "user_mentions": [
+                {
+                    "id": 2244994945,
+                    "id_str": "2244994945",
+                    "indices": [
+                        3,
+                        14
+                    ],
+                    "name": "TwitterDev",
+                    "screen_name": "TwitterDev"
+                }
+            ]
+        },
+        "favorite_count": 0,
+        "favorited": false,
+        "geo": null,
+        "id": 491619642679373824,
+        "id_str": "491619642679373824",
+        "in_reply_to_screen_name": null,
+        "in_reply_to_status_id": null,
+        "in_reply_to_status_id_str": null,
+        "in_reply_to_user_id": null,
+        "in_reply_to_user_id_str": null,
+        "lang": "en",
+        "place": null,
+        "possibly_sensitive": false,
+        "retweet_count": 51,
+        "retweeted": false,
+        "retweeted_status": {
+            "contributors": null,
+            "coordinates": null,
+            "created_at": "Tue Jul 22 16:00:16 +0000 2014",
+            "entities": {
+                "hashtags": [],
+                "symbols": [],
+                "urls": [
+                    {
+                        "display_url": "plus.google.com/events/cvlnd0b\u2026",
+                        "expanded_url": "https://plus.google.com/events/cvlnd0b4m8mbe887pjv30i0kan8",
+                        "indices": [
+                            93,
+                            116
+                        ],
+                        "url": "https://t.co/pHnC9KFqm0"
+                    },
+                    {
+                        "display_url": "youtube.com/watch?v=_3wzSd\u2026",
+                        "expanded_url": "https://www.youtube.com/watch?v=_3wzSdJ76o4",
+                        "indices": [
+                            117,
+                            140
+                        ],
+                        "url": "https://t.co/WrW9hJnJHN"
+                    }
+                ],
+                "user_mentions": []
+            },
+            "favorite_count": 56,
+            "favorited": false,
+            "geo": null,
+            "id": 491613709857337345,
+            "id_str": "491613709857337345",
+            "in_reply_to_screen_name": null,
+            "in_reply_to_status_id": null,
+            "in_reply_to_status_id_str": null,
+            "in_reply_to_user_id": null,
+            "in_reply_to_user_id_str": null,
+            "lang": "en",
+            "place": null,
+            "possibly_sensitive": false,
+            "retweet_count": 51,
+            "retweeted": false,
+            "source": "<a href=\"http://itunes.apple.com/us/app/twitter/id409789998?mt=12\" rel=\"nofollow\">Twitter for Mac</a>",
+            "text": "Join us in 1 hour for a G+ Hangout to learn how to get more from a Tweet using Twitter Cards\nhttps://t.co/pHnC9KFqm0\nhttps://t.co/WrW9hJnJHN",
+            "truncated": false,
+            "user": {
+                "contributors_enabled": false,
+                "created_at": "Sat Dec 14 04:35:55 +0000 2013",
+                "default_profile": false,
+                "default_profile_image": false,
+                "description": "Developers and Platform Relations @Twitter. We are developer advocates. We can't answer all your questions, but we listen to all of them!",
+                "entities": {
+                    "description": {
+                        "urls": []
+                    },
+                    "url": {
+                        "urls": [
+                            {
+                                "display_url": "dev.twitter.com",
+                                "expanded_url": "https://dev.twitter.com/",
+                                "indices": [
+                                    0,
+                                    23
+                                ],
+                                "url": "https://t.co/66w26cd6ZO"
+                            }
+                        ]
+                    }
+                },
+                "favourites_count": 161,
+                "follow_request_sent": false,
+                "followers_count": 10355,
+                "following": false,
+                "friends_count": 1429,
+                "geo_enabled": true,
+                "id": 2244994945,
+                "id_str": "2244994945",
+                "is_translation_enabled": false,
+                "is_translator": false,
+                "lang": "en",
+                "listed_count": 169,
+                "location": "Internet",
+                "name": "TwitterDev",
+                "notifications": false,
+                "profile_background_color": "FFFFFF",
+                "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+                "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+                "profile_background_tile": false,
+                "profile_banner_url": "https://pbs.twimg.com/profile_banners/2244994945/1396995246",
+                "profile_image_url": "http://pbs.twimg.com/profile_images/431949550836662272/A6Ck-0Gx_normal.png",
+                "profile_image_url_https": "https://pbs.twimg.com/profile_images/431949550836662272/A6Ck-0Gx_normal.png",
+                "profile_link_color": "0084B4",
+                "profile_sidebar_border_color": "FFFFFF",
+                "profile_sidebar_fill_color": "DDEEF6",
+                "profile_text_color": "333333",
+                "profile_use_background_image": false,
+                "protected": false,
+                "screen_name": "TwitterDev",
+                "statuses_count": 532,
+                "time_zone": "Pacific Time (US & Canada)",
+                "url": "https://t.co/66w26cd6ZO",
+                "utc_offset": -25200,
+                "verified": true
+            }
+        },
+        "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+        "text": "RT @TwitterDev: Join us in 1 hour for a G+ Hangout to learn how to get more from a Tweet using Twitter Cards\nhttps://t.co/pHnC9KFqm0\nhttps:\u2026",
+        "truncated": false,
+        "user": {
+            "contributors_enabled": false,
+            "created_at": "Wed May 23 06:01:13 +0000 2007",
+            "default_profile": false,
+            "default_profile_image": false,
+            "description": "The Real Twitter API. I tweet about API changes, service issues and happily answer questions about Twitter and our API. Don't get an answer? It's on my website.",
+            "entities": {
+                "description": {
+                    "urls": []
+                },
+                "url": {
+                    "urls": [
+                        {
+                            "display_url": "dev.twitter.com",
+                            "expanded_url": "http://dev.twitter.com",
+                            "indices": [
+                                0,
+                                22
+                            ],
+                            "url": "http://t.co/78pYTvWfJd"
+                        }
+                    ]
+                }
+            },
+            "favourites_count": 26,
+            "follow_request_sent": false,
+            "followers_count": 2323664,
+            "following": false,
+            "friends_count": 48,
+            "geo_enabled": true,
+            "id": 6253282,
+            "id_str": "6253282",
+            "is_translation_enabled": false,
+            "is_translator": false,
+            "lang": "en",
+            "listed_count": 12820,
+            "location": "San Francisco, CA",
+            "name": "Twitter API",
+            "notifications": false,
+            "profile_background_color": "C0DEED",
+            "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/656927849/miyt9dpjz77sc0w3d4vj.png",
+            "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/656927849/miyt9dpjz77sc0w3d4vj.png",
+            "profile_background_tile": true,
+            "profile_banner_url": "https://pbs.twimg.com/profile_banners/6253282/1347394302",
+            "profile_image_url": "http://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png",
+            "profile_image_url_https": "https://pbs.twimg.com/profile_images/2284174872/7df3h38zabcvjylnyfe3_normal.png",
+            "profile_link_color": "0084B4",
+            "profile_sidebar_border_color": "C0DEED",
+            "profile_sidebar_fill_color": "DDEEF6",
+            "profile_text_color": "333333",
+            "profile_use_background_image": true,
+            "protected": false,
+            "screen_name": "twitterapi",
+            "statuses_count": 3514,
+            "time_zone": "Pacific Time (US & Canada)",
+            "url": "http://t.co/78pYTvWfJd",
+            "utc_offset": -25200,
+            "verified": true
+        }
+    }
+]
