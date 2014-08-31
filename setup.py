@@ -21,5 +21,10 @@ setup(
     ],
     packages=find_packages(exclude=["docs", "tests", "samples"]),
     include_package_data=True,
-    install_requires=["Flask==0.9", "jsonschema", "mongoengine", "requests"]
+    install_requires=["Flask==0.9",
+                      "jsonschema",
+                      "mongoengine",
+                      "requests",
+                      "flask-script",
+                      "flask-mongoengine"]
 )
