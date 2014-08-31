@@ -1,4 +1,4 @@
-Flask
+
 pytest
 pytest-cov
 jsonschema
@@ -6,3 +6,6 @@ mongoengine
 requests
 mock
 flake8
+Flask
+flask-script
+flask_mongoengine
