@@ -35,6 +35,7 @@ class CallbackActionTestCase(unittest.TestCase):
         except NotImplementedError:
             assert True
 
+    @unittest.skip('not implemented')
     def test_callback_send_call_url_with_json_data(self):
 
         class FakeCallback(Callback):

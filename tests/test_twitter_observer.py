@@ -33,6 +33,7 @@ class TwitterObserverTestCase(unittest.TestCase):
         except ValueError:
             assert True
 
+    @unittest.skip("not implemented")
     def test_send_message_to_callback_url(self):
         tweet = {
             u'userId': 123456L,
