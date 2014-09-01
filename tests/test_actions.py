@@ -8,16 +8,16 @@ from twitter_watcher.actions import Callback
 class CallbackActionTestCase(unittest.TestCase):
 
     def test_callback_has_method_send(self):
-        assert hasattr(Callback, "send")
-        assert callable(getattr(Callback, "send"))
+        self.assertTrue(hasattr(Callback, "send"))
+        self.assertTrue(callable(getattr(Callback, "send")))
 
     def test_callback_has_method_json_data(self):
-        assert hasattr(Callback, "json_data")
-        assert callable(getattr(Callback, "json_data"))
+        self.assertTrue(hasattr(Callback, "json_data"))
+        self.assertTrue(callable(getattr(Callback, "json_data")))
 
     def test_callback_has_method_url_callback(self):
-        assert hasattr(Callback, "url_callback")
-        assert callable(getattr(Callback, "url_callback"))
+        self.assertTrue(hasattr(Callback, "url_callback"))
+        self.assertTrue(callable(getattr(Callback, "url_callback")))
 
     def test_url_callback_raise_not_implemented(self):
         try:
@@ -35,7 +35,6 @@ class CallbackActionTestCase(unittest.TestCase):
         except NotImplementedError:
             assert True
 
-    @unittest.skip('not implemented')
     def test_callback_send_call_url_with_json_data(self):
 
         class FakeCallback(Callback):
