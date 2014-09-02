@@ -18,8 +18,7 @@ class ListernerModel(unittest.TestCase):
         connect('twitter_watcher_test')
 
     def tearDown(self):
-        for listener in Listener.objects:
-            listener.delete()
+        Listener.objects.delete()
 
     def test_subclass_document(self):
         assert issubclass(Listener, Document)
