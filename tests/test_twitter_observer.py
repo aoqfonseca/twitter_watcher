@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import json
 import unittest
 import mock
 
@@ -7,6 +8,11 @@ from twitter_watcher.actions import Callback
 
 
 class TwitterObserverTestCase(unittest.TestCase):
+
+    def load_fixtures(self):
+        fixtures = open('tests/fixtures/tweets.json', 'r')
+        twitter_json_list = json.load(fixtures)
+        return twitter_json_list
 
     def test_subclass_of_action_callback(self):
         assert issubclass(ObserverTwitter, Callback)
@@ -33,17 +39,14 @@ class TwitterObserverTestCase(unittest.TestCase):
         except ValueError:
             assert True
 
-    @unittest.skip("not implemented")
     def test_send_message_to_callback_url(self):
-        tweet = {
-            u'userId': 123456L,
-            u'hastags': ['#test'],
-            u'message': 'Lorem ipsum'
-        }
+
+        tweets = self.load_fixtures()
+        tweet = tweets[0]
 
         observer = ObserverTwitter(url_callback='http://teste.com',
-                                   usernames=['@teste'],
-                                   hashtags=['#test'])
+                                   usernames=['@twitterapi'],
+                                   hashtags=[])
 
         observer.send = mock.MagicMock(return_value=True)
         observer.on_message(tweet)

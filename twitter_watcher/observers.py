@@ -12,6 +12,22 @@ class ObserverTwitter(Callback):
 
         self.validate()
 
+    def __tweet_has_username(self):
+        screen_name = self.tweet.get('user').get('screen_name')
+        screen_name = "@{}".format(screen_name)
+
+        return screen_name in self.usernames
+
+    def __tweet_has_hashtags(self):
+        hashtags = self.tweet.get('entities').get('hashtags')
+        hashtags = [item['text'] for item in hashtags]
+
+        intersection = [item for item in hashtags if item in self.hashtags]
+        if not intersection and self.hashtags:
+            return False
+
+        return True
+
     def validate(self):
         if not isinstance(self.usernames, list):
             raise ValueError("usernames should be a list")
@@ -20,7 +36,10 @@ class ObserverTwitter(Callback):
             raise ValueError("hashtags should be a list")
 
     def on_message(self, tweet):
-        pass
+        self.tweet = tweet
+
+        if self.__tweet_has_username() and self.__tweet_has_hashtags():
+            self.send()
 
     def json_data(self):
         return self.tweet
