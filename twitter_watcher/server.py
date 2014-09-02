@@ -2,9 +2,11 @@
 import os
 
 from flask import Flask
-from twitter_watcher.views import HealthCheck
+from twitter_watcher.views import HealthCheck, Listener
 
 api = Flask(__name__)
 api.debug = os.environ.get('API_DEBUG', 0) in ('true', 'True', '1')
 
 api.add_url_rule('/healthcheck', view_func=HealthCheck.as_view('healthcheck'))
+api.add_url_rule('/listeners', view_func=Listener.as_view('listeners'),
+                 methods=['POST'])
