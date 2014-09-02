@@ -6,9 +6,10 @@ from flask import Response, request
 from flask.views import MethodView
 
 from twitter_watcher.schema import valid_json_listener
+from twitter_watcher.db.models import Listener
 
 
-class Listener(MethodView):
+class ListenerView(MethodView):
 
     def post(self):
         if request.headers['content-type'] != 'application/json':
@@ -21,11 +22,21 @@ class Listener(MethodView):
                 return Response(status=400)
 
             start_date = data.get('startDate')
-            start_date = arrow.get(start_date)
+            start_date = arrow.get(start_date).datetime
+
+            end_date = data.get('endDate')
+            end_date = arrow.get(end_date).datetime
 
         except ValueError:
             return Response(status=400)
         except arrow.parser.ParserError:
             return Response(status=400)
+
+        listener = Listener(usernames=data['usernames'],
+                            hashtags=data['hashtags'],
+                            callback=data['callback'],
+                            start_date=start_date,
+                            end_date=end_date)
+        listener.save()
 
         return Response(status=201)

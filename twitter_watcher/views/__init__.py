@@ -1,4 +1,4 @@
 from .healthcheck import HealthCheck
-from .listener import Listener
+from .listener import ListenerView
 
-__all__ = ['HealthCheck', 'Listener']
+__all__ = ['HealthCheck', 'ListenerView']
