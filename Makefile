@@ -4,3 +4,7 @@ setup:
 
 test:
 	py.test
+
+.PHONY: run
+run:
+	@python manage.py runserver
