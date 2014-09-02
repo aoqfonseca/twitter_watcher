@@ -9,5 +9,6 @@ from twitter_watcher.observers import ObserverTwitter
 class Listener(Document, ObserverTwitter):
     usernames = ListField(StringField())
     hashtags = ListField(StringField())
-    start_date = DateTimeField()
-    end_date = DateTimeField()
+    callback = StringField()
+    start_date = DateTimeField(db_field='startDate')
+    end_date = DateTimeField(db_field='endDate')
