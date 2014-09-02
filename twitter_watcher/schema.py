@@ -19,7 +19,7 @@ listener_schema = {
 logger = logging.getLogger('shema')
 
 
-def check_json_listener(json):
+def valid_json_listener(json):
     """
     Method to validate listener json
     """
