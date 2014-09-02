@@ -50,3 +50,11 @@ class SchemaTestCase(unittest.TestCase):
                 'endDate': '20140101T00:00'}
 
         assert schema.valid_json_listener(json) is False
+
+        json = {'usernames': ['@aoqfonseca'],
+                'hashtags': ['#testing'],
+                'callback': 'not valid callback',
+                'startDate': '20140101T00:00',
+                'endDate': '20140101T00:00'}
+
+        assert schema.valid_json_listener(json) is False

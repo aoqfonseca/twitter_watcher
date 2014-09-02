@@ -9,7 +9,9 @@ listener_schema = {
     "properties": {
         "usernames": {"type": "array", "items":  {"type": "string"}},
         "hashtags": {"type": "array", "items":  {"type": "string"}},
-        "callback": {"type": "string"},
+        "callback": {
+            "type": "string",
+            "pattern": "^http\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$"},
         "startDate": {"type": "string"},
         "endDate": {"type": "string"}
     },
