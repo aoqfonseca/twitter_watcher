@@ -26,5 +26,6 @@ setup(
                       "mongoengine",
                       "requests",
                       "flask-script",
+                      "arrow",
                       "flask-mongoengine"]
 )
