@@ -15,7 +15,6 @@ class ViewsTestCase(unittest.TestCase):
         response = self.api.post('/listeners', data='not valid json')
         self.assertEquals(response.status_code, 406)
 
-    @unittest.skip('need to test')
     def test_send_not_valid_json(self):
         response = self.api.post('/listeners',
                                  data='not valid json',
