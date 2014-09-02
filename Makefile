@@ -1,9 +1,11 @@
 
+.PHONY: setup
 setup:
-	@pip install -qr requirements.txt
+	@pip install -r requirements.txt
 
+.PHONY: test
 test:
-	MONGODB_URL=twitter_watcher_test py.test
+	@MONGODB_URL=twitter_watcher_test py.test
 
 .PHONY: run
 run:
