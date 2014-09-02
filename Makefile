@@ -3,7 +3,7 @@ setup:
 	@pip install -qr requirements.txt
 
 test:
-	py.test
+	MONGODB_URL=twitter_watcher_test py.test
 
 .PHONY: run
 run:
