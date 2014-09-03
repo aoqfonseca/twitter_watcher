@@ -65,4 +65,4 @@ class ListenerView(MethodView):
         except arrow.parser.ParserError:
             return Response(status=400)
 
-        return Response(status=204)
+        return Response(status=200)

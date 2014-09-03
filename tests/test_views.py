@@ -103,10 +103,10 @@ class UpdateListenerTestCase(unittest.TestCase):
 
         data = json.dumps(listener_json)
         response = self.api.put('/listener/%s' % self.listener.id,
-                                 data=data,
-                                 content_type='application/json')
+                                data=data,
+                                content_type='application/json')
 
-        self.assertEquals(response.status_code, 204)
+        self.assertEquals(response.status_code, 200)
         self.listener = Listener.objects.get(id=self.listener.id)
 
         #Checking if data is changed
@@ -123,7 +123,7 @@ class UpdateListenerTestCase(unittest.TestCase):
         data = json.dumps(data)
 
         response = self.api.put('/listener/%s' % self.listener.id,
-                                 data=data,
-                                 content_type='application/json')
+                                data=data,
+                                content_type='application/json')
 
         self.assertEquals(response.status_code, 400)
