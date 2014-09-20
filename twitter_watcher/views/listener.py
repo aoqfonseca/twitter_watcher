@@ -60,6 +60,14 @@ class ListenerView(MethodView):
             end_date = data.get('endDate')
             end_date = arrow.get(end_date).datetime
 
+            listener = Listener.objects.get(id=id)
+            listener.usernames = data['usernames']
+            listener.hashtags = data['hashtags']
+            listener.start_date = start_date
+            listener.end_date = end_date
+
+            listener.save()
+
         except ValueError:
             return Response(status=400)
         except arrow.parser.ParserError:
