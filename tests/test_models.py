@@ -56,3 +56,20 @@ class ListernerModel(unittest.TestCase):
         listener = Listener.objects(id=listener.id)[0]
         self.assertEquals(listener.usernames, ['@teste1', '@teste2'])
         self.assertEquals(listener.hashtags, ['#blabla', '#blabla2'])
+
+    def test_convert_to_json(self):
+        listener = Listener(usernames=['@teste1', '@teste2'],
+                            hashtags=['#blabla', '#blabla2'],
+                            start_date=datetime.now(),
+                            end_date=datetime.now())
+
+        listener.save()
+
+        json = listener.to_json()
+
+        self.assertEquals(json['id'], listener.id)
+        self.assertEquals(json['usernames'], listener.usernames)
+        self.assertEquals(json['hashtags'], listener.hashtags)
+        self.assertEquals(json['startDate'], listener.start_date)
+        self.assertEquals(json['endDate'], listener.end_date)
+
