@@ -3,7 +3,7 @@ import os
 
 from flask import Flask
 from flask.ext.mongoengine import MongoEngine
-from twitter_watcher.views import HealthCheck, ListenerView
+from twitter_watcher.views import register_blueprints
 
 api = Flask(__name__)
 api.debug = os.environ.get('API_DEBUG', 0) in ('true', 'True', '1')
@@ -17,12 +17,4 @@ api.config['SECRET_KEY'] = 'KeepThisS3cr3t3'
 db = MongoEngine()
 
 db.init_app(api)
-
-api.add_url_rule('/healthcheck', view_func=HealthCheck.as_view('healthcheck'))
-api.add_url_rule('/listeners',
-                 view_func=ListenerView.as_view('listeners'),
-                 methods=['POST'])
-
-api.add_url_rule('/listener/<id>',
-                 view_func=ListenerView.as_view('listener'),
-                 methods=['GET', 'PUT', 'DELETE'])
+register_blueprints(api)

@@ -2,14 +2,23 @@
 import json
 import arrow
 
-from flask import Response, request
+from flask import Response, Blueprint, request
 from flask.views import MethodView
 
 from twitter_watcher.schema import valid_json_listener
 from twitter_watcher.db.models import Listener
 
 
-class ListenerView(MethodView):
+listeners_view = Blueprint('listeners_view', __name__)
+
+
+class ListView(MethodView):
+
+    def get(self):
+        return Response(status=200)
+
+
+class DetailView(MethodView):
 
     def get(self, id):
         return "oi", 200
@@ -84,3 +93,14 @@ class ListenerView(MethodView):
 
 
 
+listeners_view.add_url_rule('/listeners',
+                 view_func=DetailView.as_view('create'),
+                 methods=['POST'])
+
+listeners_view.add_url_rule('/listeners',
+                 view_func=ListView.as_view('index'),
+                 methods=['GET'])
+
+listeners_view.add_url_rule('/listener/<id>',
+                 view_func=DetailView.as_view('listener'),
+                 methods=['GET', 'PUT', 'DELETE'])
