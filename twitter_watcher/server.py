@@ -14,7 +14,9 @@ api.config['MONGODB_SETTINGS'] = {
 
 api.config['SECRET_KEY'] = 'KeepThisS3cr3t3'
 
-db = MongoEngine(api)
+db = MongoEngine()
+
+db.init_app(api)
 
 api.add_url_rule('/healthcheck', view_func=HealthCheck.as_view('healthcheck'))
 api.add_url_rule('/listeners',

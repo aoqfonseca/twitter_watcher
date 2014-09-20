@@ -127,3 +127,28 @@ class UpdateListenerTestCase(unittest.TestCase):
                                 content_type='application/json')
 
         self.assertEquals(response.status_code, 400)
+
+
+class DeleteListenerTestCase(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls.api = server.api.test_client()
+
+    def setUp(self):
+        self.listener = Listener(usernames=['@teste'],
+                                 hashtags=['#123'],
+                                 start_date=datetime.now(),
+                                 end_data=datetime.now())
+        self.listener.save()
+
+    def tearDown(self):
+        self.listener.delete()
+
+    def test_delete(self):
+        response = self.api.delete('/listener/%s' % self.listener.id, 
+                                   content_type='application/json')
+
+        self.assertEquals(response.status_code, 200)
+        listeners = Listener.objects.filter(id=self.listener.id)
+        assert len(listeners) == 0 

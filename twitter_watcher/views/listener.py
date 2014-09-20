@@ -74,3 +74,13 @@ class ListenerView(MethodView):
             return Response(status=400)
 
         return Response(status=200)
+
+    def delete(self, id):
+        if request.headers['content-type'] != 'application/json':
+            return Response(status=406)
+
+        Listener.objects.get(id=id).delete()
+        return Response(status=200)
+
+
+
