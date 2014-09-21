@@ -2,7 +2,7 @@
 import json
 import arrow
 
-from flask import Response, Blueprint, request
+from flask import Response, Blueprint, request, jsonify
 from flask.views import MethodView
 
 from twitter_watcher.schema import valid_json_listener
@@ -15,7 +15,9 @@ listeners_view = Blueprint('listeners_view', __name__)
 class ListView(MethodView):
 
     def get(self):
-        return Response(status=200)
+        listeners = Listener.objects
+        listeners = [listener.to_json() for listener in listeners]
+        return jsonify(listeners=listeners)
 
 
 class DetailView(MethodView):

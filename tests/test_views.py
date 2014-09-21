@@ -151,4 +151,32 @@ class DeleteListenerTestCase(unittest.TestCase):
 
         self.assertEquals(response.status_code, 200)
         listeners = Listener.objects.filter(id=self.listener.id)
-        assert len(listeners) == 0 
+        assert len(listeners) == 0
+
+
+class ListAllListenersView(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls.api = server.api.test_client()
+
+    def setUp(self):
+        self.listener = Listener(usernames=['@teste'],
+                                 hashtags=['#123'],
+                                 start_date=datetime.now(),
+                                 end_data=datetime.now())
+        self.listener.save()
+
+    def tearDown(self):
+        self.listener.delete()
+
+
+    def test_get_all_listeners(self):
+        response = self.api.get('/listeners', content_type='application/json')
+        self.assertEquals(response.status_code, 200)
+        data = json.loads(response.data)
+        listeners = data['listeners']
+        self.assertEquals(len(listeners), 1)
+        self.assertEquals(listeners[0]['usernames'], self.listener.usernames)
+        self.assertEquals(listeners[0]['hashtags'], self.listener.hashtags)
+        self.assertEquals(listeners[0]['id'], str(self.listener.id))

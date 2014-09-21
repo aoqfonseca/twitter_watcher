@@ -67,7 +67,7 @@ class ListernerModel(unittest.TestCase):
 
         json = listener.to_json()
 
-        self.assertEquals(json['id'], listener.id)
+        self.assertEquals(json['id'], str(listener.id))
         self.assertEquals(json['usernames'], listener.usernames)
         self.assertEquals(json['hashtags'], listener.hashtags)
         self.assertEquals(json['startDate'], listener.start_date)

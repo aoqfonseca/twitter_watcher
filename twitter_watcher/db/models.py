@@ -16,7 +16,7 @@ class Listener(Document, ObserverTwitter):
 
     def to_json(self):
     	return {
-    		u'id': self.id,
+    		u'id': str(self.id),
     		u'usernames': self.usernames,
     		u'hashtags': self.hashtags,
     		u'startDate': self.start_date,
