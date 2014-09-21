@@ -94,15 +94,14 @@ class DetailView(MethodView):
         return Response(status=200)
 
 
+listeners_view.add_url_rule('/listeners',
+                            view_func=DetailView.as_view('create'),
+                            methods=['POST'])
 
 listeners_view.add_url_rule('/listeners',
-                 view_func=DetailView.as_view('create'),
-                 methods=['POST'])
-
-listeners_view.add_url_rule('/listeners',
-                 view_func=ListView.as_view('index'),
-                 methods=['GET'])
+                            view_func=ListView.as_view('index'),
+                            methods=['GET'])
 
 listeners_view.add_url_rule('/listener/<id>',
-                 view_func=DetailView.as_view('listener'),
-                 methods=['GET', 'PUT', 'DELETE'])
+                            view_func=DetailView.as_view('listener'),
+                            methods=['GET', 'PUT', 'DELETE'])

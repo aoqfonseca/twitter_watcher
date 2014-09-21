@@ -5,6 +5,7 @@ from flask.views import MethodView
 
 healthcheck = Blueprint('healthchek', __name__)
 
+
 class HealthCheck(MethodView):
 
     def get(self):
@@ -12,4 +13,4 @@ class HealthCheck(MethodView):
 
 
 healthcheck.add_url_rule('/healthcheck',
-						 view_func=HealthCheck.as_view('healthcheck'))
+                         view_func=HealthCheck.as_view('healthcheck'))

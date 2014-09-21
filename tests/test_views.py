@@ -109,7 +109,7 @@ class UpdateListenerTestCase(unittest.TestCase):
         self.assertEquals(response.status_code, 200)
         self.listener = Listener.objects.get(id=self.listener.id)
 
-        #Checking if data is changed
+        # Checking if data is changed
         self.assertEquals(self.listener.usernames, listener_json['usernames'])
         self.assertEquals(self.listener.hashtags, listener_json['hashtags'])
 
@@ -146,7 +146,7 @@ class DeleteListenerTestCase(unittest.TestCase):
         self.listener.delete()
 
     def test_delete(self):
-        response = self.api.delete('/listener/%s' % self.listener.id, 
+        response = self.api.delete('/listener/%s' % self.listener.id,
                                    content_type='application/json')
 
         self.assertEquals(response.status_code, 200)
@@ -169,7 +169,6 @@ class ListAllListenersView(unittest.TestCase):
 
     def tearDown(self):
         self.listener.delete()
-
 
     def test_get_all_listeners(self):
         response = self.api.get('/listeners', content_type='application/json')

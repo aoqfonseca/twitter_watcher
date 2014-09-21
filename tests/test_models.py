@@ -72,4 +72,3 @@ class ListernerModel(unittest.TestCase):
         self.assertEquals(json['hashtags'], listener.hashtags)
         self.assertEquals(json['startDate'], listener.start_date)
         self.assertEquals(json['endDate'], listener.end_date)
-

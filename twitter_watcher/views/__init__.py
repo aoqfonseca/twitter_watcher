@@ -2,7 +2,7 @@
 
 
 def register_blueprints(app):
-	# Prevents circular imports
+    # Prevents circular imports
     from twitter_watcher.views.listener import listeners_view
     from twitter_watcher.views.healthcheck import healthcheck
     app.register_blueprint(listeners_view)
