@@ -7,6 +7,44 @@ from twitter_watcher import server
 from twitter_watcher.db.models import Listener
 
 
+class DetailViewListenerTestCase(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls.api = server.api.test_client()
+    
+    def setUp(self):
+        self.listener = Listener(usernames=['@teste'],
+                                 hashtags=['#123'],
+                                 start_date=datetime.now(),
+                                 end_data=datetime.now())
+        self.listener.save()
+
+    def tearDown(self):
+        self.listener.delete()
+
+    def test_return_json_listener(self):
+        url = '/listener/{}'.format(self.listener.id)
+        response = self.api.get(url)
+        self.assertEquals(response.status_code, 200)
+        expected = self.listener.to_json()
+        returned = json.loads(response.data)
+        self.assertEquals(returned['id'], expected['id']) 
+        self.assertEquals(returned['usernames'], expected['usernames']) 
+        self.assertEquals(returned['hashtags'], expected['hashtags']) 
+
+    def test_400_for_invalid_object_id(self):
+        url = '/listener/222222222222'
+        response = self.api.get(url)
+        self.assertEquals(response.status_code, 400)
+
+    def test_404_for_not_found(self):
+        url = '/listener/111111111111111111111111'
+        response = self.api.get(url)
+        self.assertEquals(response.status_code, 404)
+
+
+
 class CreateListenerViewsTestCase(unittest.TestCase):
 
     @classmethod

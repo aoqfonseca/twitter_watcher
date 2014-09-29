@@ -5,6 +5,8 @@ import arrow
 from flask import Response, Blueprint, request, jsonify
 from flask.views import MethodView
 
+from mongoengine.errors import ValidationError
+
 from twitter_watcher.schema import valid_json_listener
 from twitter_watcher.db.models import Listener
 
@@ -23,7 +25,13 @@ class ListView(MethodView):
 class DetailView(MethodView):
 
     def get(self, id):
-        return "oi", 200
+        try:
+            listener = Listener.objects.get(id=id)
+            return jsonify(listener.to_json())
+        except Listener.DoesNotExist:
+            return Response('Not Exist', status=404)
+        except ValidationError:
+            return Response('Bad Request', 400)
 
     def post(self):
         if request.headers['content-type'] != 'application/json':
