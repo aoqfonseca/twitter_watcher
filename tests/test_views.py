@@ -44,7 +44,6 @@ class DetailViewListenerTestCase(unittest.TestCase):
         self.assertEquals(response.status_code, 404)
 
 
-
 class CreateListenerViewsTestCase(unittest.TestCase):
 
     @classmethod
