@@ -12,13 +12,16 @@ class ObserverTwitter(Callback):
 
         self.validate()
 
-    def __tweet_has_username(self):
+    def tweet_has_username(self):
         screen_name = self.tweet.get('user').get('screen_name')
         screen_name = "@{}".format(screen_name)
 
+        if not self.usernames:
+            return True
+
         return screen_name in self.usernames
 
-    def __tweet_has_hashtags(self):
+    def tweet_has_hashtags(self):
         hashtags = self.tweet.get('entities').get('hashtags')
         hashtags = [item['text'] for item in hashtags]
 
@@ -38,7 +41,7 @@ class ObserverTwitter(Callback):
     def on_message(self, tweet):
         self.tweet = tweet
 
-        if self.__tweet_has_username() and self.__tweet_has_hashtags():
+        if self.tweet_has_username() and self.tweet_has_hashtags():
             self.send()
 
     def json_data(self):

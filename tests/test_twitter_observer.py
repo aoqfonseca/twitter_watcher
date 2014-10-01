@@ -65,3 +65,21 @@ class TwitterObserverTestCase(unittest.TestCase):
         observer.send = mock.MagicMock(return_value=True)
         observer.on_message(tweet)
         assert observer.send.call_count == 0
+
+    def test_return_true_for_empty_user_list(self):
+        tweets = self.load_fixtures()
+        observer = ObserverTwitter(url_callback='http://test/com',
+                                   usernames=[],
+                                   hashtags=['test'])
+        observer.tweet = tweets[0]
+
+        self.assertTrue(observer.tweet_has_username())
+
+    def test_return_true_for_empty_hashtags_list(self):
+        tweets = self.load_fixtures()
+        observer = ObserverTwitter(url_callback='http://test/com',
+                                   usernames=['twitter'],
+                                   hashtags=[])
+        observer.tweet = tweets[0]
+
+        self.assertTrue(observer.tweet_has_hashtags())
