@@ -52,7 +52,6 @@ class TwitterObserverTestCase(unittest.TestCase):
         observer.on_message(tweet)
         observer.send.assert_called_once_with()
 
-
     def test_dont_call_send_on_message(self):
 
         tweets = self.load_fixtures()
