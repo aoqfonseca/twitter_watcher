@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import unittest
 import datetime
+from mock import MagicMock
 
 from mongoengine import connect
 
@@ -41,10 +42,7 @@ class TwitterClientTestCase(unittest.TestCase):
         pass
 
     def test_mount_a_set_with_usernames(self):
-        client = TwitterClient(app_key='',
-                               app_secret='',
-                               oauth_token='token',
-                               oauth_token_client='')
+        client = TwitterClient()
 
         client.get_all_listeners()
 
@@ -55,10 +53,7 @@ class TwitterClientTestCase(unittest.TestCase):
         self.assertEquals(usernames_set, expected)
 
     def test_mount_a_set_with_hashtags(self):
-        client = TwitterClient(app_key='',
-                               app_secret='',
-                               oauth_token='token',
-                               oauth_token_client='')
+        client = TwitterClient()
 
         client.get_all_listeners()
 
@@ -68,3 +63,16 @@ class TwitterClientTestCase(unittest.TestCase):
 
         self.assertEquals(hashtags_set, expected)
 
+    def test_find_users_id_in_twitter(self):
+        tw_client = MagicMock()
+        tw_client.lookup_user.return_value = [{u'id': 12127898},
+                                              {u'id': 12312334}]
+
+        client = TwitterClient(tw_client)
+        screen_names = ['@aoqfonseca', '@twitterapi']
+
+        client.build_usernames_set = MagicMock(return_value=screen_names)
+        client.find_user_ids()
+        screen_names = map(lambda u: u.replace('@', ''), screen_names)
+        screen_names = ",".join(screen_names)
+        tw_client.lookup_user.assert_called_once_with(screen_name=screen_names)
