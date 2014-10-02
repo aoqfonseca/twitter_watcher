@@ -26,5 +26,6 @@ setup(
                       "requests",
                       "flask-script",
                       "arrow",
+                      "twython",
                       "flask-mongoengine"]
 )
