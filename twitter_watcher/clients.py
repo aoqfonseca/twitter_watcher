@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 import logging
+import functools
+
+from multiprocessing import Pool
 
 from twython import TwythonStreamer
 
@@ -26,10 +29,17 @@ class TwitterClient(object):
         return self.twitter_client.lookup_user(screen_name=usernames)
 
     def start(self):
-        pass
+        self.stream_client.listeners = self.listeners
+        users = self.find_user_ids()
+        users = ",".join(str(item) for item in users)
+
+        hashtags = self.build_hashtags_set()
+        hashtags = ",".join(hashtags)
+
+        self.stream_client.filter(track=hashtags, follow=users)
 
     def stop(self):
-        pass
+        self.stream_client.disconnect()
 
     def restart(self):
         self.start()
@@ -40,12 +50,14 @@ class TwitterWatcherStream(TwythonStreamer):
     """ implementation of stream client """
 
     log = logging.getLogger('stream_api')
+    pool = Pool(5)
 
-    def listeners(self, itens):
-        self._listeners = itens
+    def call_listener(self, listener, msg):
+        listener.on_message(msg)
 
     def on_success(self, data):
-        pass
+        func = functools.partial(self.call_listener, data)
+        self.pool.map(func, self.listeners)
 
     def on_error(self, status_code, data):
         self.log.error('Error stream api. STATUS %s . DATA %s',

@@ -72,3 +72,27 @@ class TwitterClientTestCase(unittest.TestCase):
         screen_names = map(lambda u: u.replace('@', ''), screen_names)
         screen_names = ",".join(screen_names)
         tw_client.lookup_user.assert_called_once_with(screen_name=screen_names)
+
+    def test_start_on_client(self):
+        stream = MagicMock()
+
+        client = TwitterClient(stream_client=stream)
+
+        client.find_user_ids = MagicMock(return_value=[123456, 1234567])
+        client.build_hashtags_set = MagicMock(
+            return_value=['#test1', '#test2'])
+
+        args_user = "123456,1234567"
+        args_hashtags = "#test1,#test2"
+
+        client.start()
+        stream.filter. \
+            assert_called_once_with(track=args_hashtags,
+                                    follow=args_user)
+
+    def test_stop_disconnect(self):
+        stream = MagicMock()
+        client = TwitterClient(stream_client=stream)
+
+        client.stop()
+        stream.disconnect.assert_called_once_with()
