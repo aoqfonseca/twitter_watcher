@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 import logging
 import functools
+import itertools
 
 from multiprocessing import Pool
 
 from twython import TwythonStreamer
+
+log = logging.getLogger('stream_api')
 
 
 class TwitterClient(object):
@@ -16,17 +19,21 @@ class TwitterClient(object):
 
     def build_usernames_set(self):
         usernames = [item.usernames for item in self.listeners]
-        return set(zip(*usernames))
+        usernames = itertools.chain(*usernames)
+        return set(usernames)
 
     def build_hashtags_set(self):
         hashtags = [item.hashtags for item in self.listeners]
-        return set(zip(*hashtags))
+        hashtags = itertools.chain(*hashtags)
+        return set(hashtags)
 
     def find_user_ids(self):
         usernames = self.build_usernames_set()
         usernames = map(lambda u: u.replace('@', ''), usernames)
         usernames = ",".join(usernames)
-        return self.twitter_client.lookup_user(screen_name=usernames)
+        users_ids = self.twitter_client.lookup_user(screen_name=usernames)
+        users_ids = [item[u'id'] for item in users_ids]
+        return users_ids
 
     def start(self):
         self.stream_client.listeners = self.listeners
@@ -36,7 +43,7 @@ class TwitterClient(object):
         hashtags = self.build_hashtags_set()
         hashtags = ",".join(hashtags)
 
-        self.stream_client.filter(track=hashtags, follow=users)
+        self.stream_client.statuses.filter(track=hashtags, follow=users)
 
     def stop(self):
         self.stream_client.disconnect()
@@ -44,21 +51,22 @@ class TwitterClient(object):
     def restart(self):
         self.start()
         self.stop()
+        
+
+def call_listener(msg, listener):
+    listener.on_message(msg)
 
 
 class TwitterWatcherStream(TwythonStreamer):
     """ implementation of stream client """
 
-    log = logging.getLogger('stream_api')
     pool = Pool(5)
 
-    def call_listener(self, listener, msg):
-        listener.on_message(msg)
-
     def on_success(self, data):
-        func = functools.partial(self.call_listener, data)
+        func = functools.partial(call_listener, data)
+        log.debug("New message incoming. Lets call listeners [%s]", data)
         self.pool.map(func, self.listeners)
 
     def on_error(self, status_code, data):
-        self.log.error('Error stream api. STATUS %s . DATA %s',
-                       status_code, data)
+        log.error('Error stream api. STATUS %s . DATA %s',
+                  status_code, data)

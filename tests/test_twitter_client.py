@@ -45,8 +45,7 @@ class TwitterClientTestCase(unittest.TestCase):
         client = TwitterClient(listeners=Listener.objects)
 
         usernames_set = client.build_usernames_set()
-        expected = zip(self.listener_a.usernames, self.listener_b.usernames)
-        expected = set(expected)
+        expected = set(['@twitter_api', '@aoqfonseca'])
 
         self.assertEquals(usernames_set, expected)
 
@@ -54,8 +53,7 @@ class TwitterClientTestCase(unittest.TestCase):
         client = TwitterClient(listeners=Listener.objects)
 
         hashtags_set = client.build_hashtags_set()
-        expected = zip(self.listener_a.hashtags, self.listener_b.hashtags)
-        expected = set(expected)
+        expected = set(['#test', '#test2'])
 
         self.assertEquals(hashtags_set, expected)
 
@@ -68,10 +66,11 @@ class TwitterClientTestCase(unittest.TestCase):
         screen_names = ['@aoqfonseca', '@twitterapi']
 
         client.build_usernames_set = MagicMock(return_value=screen_names)
-        client.find_user_ids()
+        ret = client.find_user_ids()
         screen_names = map(lambda u: u.replace('@', ''), screen_names)
         screen_names = ",".join(screen_names)
         tw_client.lookup_user.assert_called_once_with(screen_name=screen_names)
+        self.assertEquals(ret, [12127898, 12312334])
 
     def test_start_on_client(self):
         stream = MagicMock()
@@ -86,7 +85,7 @@ class TwitterClientTestCase(unittest.TestCase):
         args_hashtags = "#test1,#test2"
 
         client.start()
-        stream.filter. \
+        stream.statuses.filter. \
             assert_called_once_with(track=args_hashtags,
                                     follow=args_user)
 

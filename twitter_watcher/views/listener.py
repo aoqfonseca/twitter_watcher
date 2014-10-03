@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 import arrow
+import logging
 
 from flask import Response, Blueprint, request, jsonify
 from flask.views import MethodView
@@ -12,6 +13,8 @@ from twitter_watcher.db.models import Listener
 
 
 listeners_view = Blueprint('listeners_view', __name__)
+
+log = logging.getLogger(__name__)
 
 
 class ListView(MethodView):
@@ -41,6 +44,7 @@ class DetailView(MethodView):
             data = json.loads(request.data)
 
             if valid_json_listener(data) is not True:
+                log.error('json invalid')
                 return Response(status=400)
 
             start_date = data.get('startDate')
@@ -49,9 +53,11 @@ class DetailView(MethodView):
             end_date = data.get('endDate')
             end_date = arrow.get(end_date).datetime
 
-        except ValueError:
+        except ValueError, e:
+            log.error('ValueError %s ', e)
             return Response(status=400)
         except arrow.parser.ParserError:
+            log.error('Error parsing date')
             return Response(status=400)
 
         listener = Listener(usernames=data['usernames'],

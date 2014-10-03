@@ -22,3 +22,7 @@ class Listener(Document, ObserverTwitter):
     		u'startDate': self.start_date,
     		u'endDate': self.end_date
     	}
+
+    @property
+    def url(self):
+        return self.callback
