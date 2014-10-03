@@ -42,9 +42,7 @@ class TwitterClientTestCase(unittest.TestCase):
         pass
 
     def test_mount_a_set_with_usernames(self):
-        client = TwitterClient()
-
-        client.get_all_listeners()
+        client = TwitterClient(listeners=Listener.objects)
 
         usernames_set = client.build_usernames_set()
         expected = zip(self.listener_a.usernames, self.listener_b.usernames)
@@ -53,9 +51,7 @@ class TwitterClientTestCase(unittest.TestCase):
         self.assertEquals(usernames_set, expected)
 
     def test_mount_a_set_with_hashtags(self):
-        client = TwitterClient()
-
-        client.get_all_listeners()
+        client = TwitterClient(listeners=Listener.objects)
 
         hashtags_set = client.build_hashtags_set()
         expected = zip(self.listener_a.hashtags, self.listener_b.hashtags)
@@ -68,7 +64,7 @@ class TwitterClientTestCase(unittest.TestCase):
         tw_client.lookup_user.return_value = [{u'id': 12127898},
                                               {u'id': 12312334}]
 
-        client = TwitterClient(tw_client)
+        client = TwitterClient(twitter_client=tw_client)
         screen_names = ['@aoqfonseca', '@twitterapi']
 
         client.build_usernames_set = MagicMock(return_value=screen_names)
