@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+import logging
 
 from flask import Flask
 from flask.ext.mongoengine import MongoEngine
@@ -18,3 +19,11 @@ db = MongoEngine()
 
 db.init_app(api)
 register_blueprints(api)
+
+
+log = logging.getLogger(__name__)
+
+@api.route('/test',  methods=['GET', 'POST'])
+def test():
+	log.info("Chegou mensagem")
+	return "ok"

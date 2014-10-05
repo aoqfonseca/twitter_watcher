@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
+import logging
 
 from twitter_watcher.actions import Callback
+
+
+log = logging.getLogger(__name__)
 
 
 class ObserverTwitter(Callback):
@@ -42,6 +46,7 @@ class ObserverTwitter(Callback):
         self.tweet = tweet
 
         if self.tweet_has_username() and self.tweet_has_hashtags():
+            log.debug("Callingback service with message")
             self.send()
 
     def json_data(self):
