@@ -10,3 +10,8 @@ test:
 .PHONY: run
 run:
 	@python manage.py runserver
+
+sync_twitter: 
+	@python manage.py start_twitter
+
+
