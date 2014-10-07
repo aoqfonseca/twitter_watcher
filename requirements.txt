@@ -10,3 +10,4 @@ Flask
 flask-script
 flask_mongoengine
 twython
+celery
