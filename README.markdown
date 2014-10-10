@@ -1,5 +1,6 @@
 API REST for a service that watch twitter stream and callback registered systems with new comming tweets
 
+[![Build Status](https://travis-ci.org/aoqfonseca/twitter_watcher.svg?branch=master)](https://travis-ci.org/aoqfonseca/twitter_watcher)
 
 #INSTALLATION#
 
