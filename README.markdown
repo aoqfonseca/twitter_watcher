@@ -15,3 +15,14 @@ After go to where you cloned:
     make setup
     make test
 
+#USING
+To install, you should do: 
+
+	git clone <this>
+
+After, this:
+
+	make setup
+	make run
+	make sync_twitter
+
