@@ -10,6 +10,7 @@ class Listener(Document, ObserverTwitter):
     usernames = ListField(StringField())
     hashtags = ListField(StringField())
     callback = StringField()
+    type = StringField()
     start_date = DateTimeField(db_field='startDate')
     end_date = DateTimeField(db_field='endDate')
 

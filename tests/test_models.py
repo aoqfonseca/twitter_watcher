@@ -46,6 +46,8 @@ class ListernerModel(unittest.TestCase):
         listener = Listener(usernames=['@teste1', '@teste2'],
                             hashtags=['#blabla', '#blabla2'],
                             start_date=datetime.now(),
+                            callback="http://test.com",
+                            type="CALLBACK",
                             end_date=datetime.now())
 
         assert listener.id is None
