@@ -63,6 +63,7 @@ class DetailView(MethodView):
         listener = Listener(usernames=data['usernames'],
                             hashtags=data['hashtags'],
                             callback=data['callback'],
+                            type=data['type'],
                             start_date=start_date,
                             end_date=end_date)
         listener.save()
@@ -88,6 +89,8 @@ class DetailView(MethodView):
             listener = Listener.objects.get(id=id)
             listener.usernames = data['usernames']
             listener.hashtags = data['hashtags']
+            listener.callback = data['callback']
+            listener.type = data['type']
             listener.start_date = start_date
             listener.end_date = end_date
 
