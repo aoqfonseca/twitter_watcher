@@ -15,7 +15,7 @@ sync_twitter:
 	@python manage.py start_twitter
 
 start_celery:
-	@celery  multi restart w1 -A twitter_watcher.server  -l info
+	@celery  -A twitter_watcher.server  -l info
 
 start_redis:
 	@redis-server /usr/local/etc/redis.conf
