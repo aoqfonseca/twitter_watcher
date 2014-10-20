@@ -17,4 +17,7 @@ sync_twitter:
 start_celery:
 	@celery  multi restart w1 -A twitter_watcher  -l info
 
+start_redis:
+	@redis-server /usr/local/etc/redis.conf
+
 
