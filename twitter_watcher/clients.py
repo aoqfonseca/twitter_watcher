@@ -51,7 +51,7 @@ class TwitterClient(object):
     def restart(self):
         self.start()
         self.stop()
-        
+
 
 def call_listener(msg, listener):
     listener.on_message(msg)
