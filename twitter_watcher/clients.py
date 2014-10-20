@@ -3,6 +3,7 @@ import logging
 import itertools
 
 from twython import TwythonStreamer
+from twitter_watcher.tasks import receive_msg
 
 log = logging.getLogger('stream_api')
 
@@ -50,15 +51,12 @@ class TwitterClient(object):
         self.stop()
 
 
-def call_listener(msg, listener):
-    listener.on_message(msg)
-
-
 class TwitterWatcherStream(TwythonStreamer):
     """ implementation of stream client """
 
     def on_success(self, data):
         log.debug("New message incoming. Lets call listeners [%s]", data)
+        receive_msg.add_delay(data)
 
     def on_error(self, status_code, data):
         log.error('Error stream api. STATUS %s . DATA %s',

@@ -9,7 +9,7 @@ from twitter_watcher.db.models import Listener
 from twitter_watcher.clients import TwitterClient, TwitterWatcherStream
 
 APP_KEY = api.config['APP_TWIITER_ID']
-APP_TWIITER_ID=os.environ.get('APP_TWIITER_ID')
+APP_TWIITER_ID=api.config['APP_TWIITER_ID']
 APP_SECRET = api.config['APP_TWIITER_SECRET']
 OAUTH_KEY = api.config['TOKEN_TWIITER_ID']
 OAUTH_TOKEN = api.config['TOKEN_TWIITER_SECRET']

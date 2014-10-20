@@ -11,3 +11,5 @@ flask_mongoengine
 twython
 celery
 tox
+honcho
+redis
