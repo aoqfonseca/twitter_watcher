@@ -57,12 +57,8 @@ def call_listener(msg, listener):
 class TwitterWatcherStream(TwythonStreamer):
     """ implementation of stream client """
 
-    pool = Pool(5)
-
     def on_success(self, data):
-        func = functools.partial(call_listener, data)
         log.debug("New message incoming. Lets call listeners [%s]", data)
-        self.pool.map(func, self.listeners)
 
     def on_error(self, status_code, data):
         log.error('Error stream api. STATUS %s . DATA %s',
