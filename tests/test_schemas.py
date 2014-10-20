@@ -10,10 +10,23 @@ class SchemaTestCase(unittest.TestCase):
         json = {'usernames': ['@aoqfonseca'],
                 'hashtags': ['#testing'],
                 'callback': "http://globo.com",
+                'type': "CALLBACK",
                 'startDate': '20140101T00:00',
                 'endDate': '20140101T00:00'}
 
         assert schema.valid_json_listener(json)
+
+
+    def test_return_false_for_type_diferent_of_string(self):
+        json = {'usernames': ['@aoqfonseca'],
+                'hashtags': ['#testing'],
+                'callback': "http://globo.com",
+                'type': 1,
+                'startDate': '20140101T00:00',
+                'endDate': '20140101T00:00'}
+                
+        assert schema.valid_json_listener(json) is False
+
 
     def test_return_false_for_required_fields(self):
         json = {'usernames': ['@aoqfonseca'],

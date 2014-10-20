@@ -4,13 +4,15 @@ import logging
 from flask.ext.script import Command
 from twython import Twython
 
+from twitter_watcher.server import api
 from twitter_watcher.db.models import Listener
 from twitter_watcher.clients import TwitterClient, TwitterWatcherStream
 
-APP_KEY = 'zBO5D1AEtirDc2vxGYPD8BWxf'
-APP_SECRET = '8YD072ZmiePSNXGpywTSgFYfMRhgQe075v99nuSg8GzQMw5Cw8'
-OAUTH_KEY = '12278792-UsFcoPJiinLDott7TTChdSfVwcbOf7ZWqjNjNkp5A'
-OAUTH_TOKEN = '4ci9LIIaN7prrJszpGf66eWKxhiwqeMP9ta0tOZAHx8lC'
+APP_KEY = api.config['APP_TWIITER_ID']
+APP_TWIITER_ID=os.environ.get('APP_TWIITER_ID')
+APP_SECRET = api.config['APP_TWIITER_SECRET']
+OAUTH_KEY = api.config['TOKEN_TWIITER_ID']
+OAUTH_TOKEN = api.config['TOKEN_TWIITER_SECRET']
 
 
 log = logging.getLogger(__name__)

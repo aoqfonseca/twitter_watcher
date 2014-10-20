@@ -6,13 +6,7 @@ from flask.ext.mongoengine import MongoEngine
 from twitter_watcher.views import register_blueprints
 
 api = Flask(__name__)
-api.debug = os.environ.get('API_DEBUG', 0) in ('true', 'True', '1')
-
-api.config['MONGODB_SETTINGS'] = {
-    'DB': os.environ.get('MONGODB_URL', 'twitter_watcher')
-}
-
-api.config['SECRET_KEY'] = 'KeepThisS3cr3t3'
+api.config.from_object('twitter_watcher.config.Config')
 
 db = MongoEngine()
 

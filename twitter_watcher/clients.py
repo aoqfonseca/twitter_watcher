@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 import logging
-import functools
 import itertools
-
-from multiprocessing import Pool
 
 from twython import TwythonStreamer
 
@@ -51,7 +48,7 @@ class TwitterClient(object):
     def restart(self):
         self.start()
         self.stop()
-        
+
 
 def call_listener(msg, listener):
     listener.on_message(msg)

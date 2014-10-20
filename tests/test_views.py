@@ -67,7 +67,8 @@ class CreateListenerViewsTestCase(unittest.TestCase):
     def test_error_for_invalid_parameter_callback(self):
         data = {'usernames': ['@aoqfonseca'],
                 'hashtags': ['#testing'],
-                'callback': "//globo.com",
+                'callback': "//test.com",
+                'type': "CALLBACK",
                 'startDate': '2014-01-01T00:00',
                 'endDate': '2014-01-01T00:00'}
 
@@ -82,7 +83,8 @@ class CreateListenerViewsTestCase(unittest.TestCase):
     def test_success_create_a_new_listener(self):
         listener_json = {'usernames': ['@aoqfonseca'],
                          'hashtags': ['#testing'],
-                         'callback': "http://globo.com",
+                         'callback': "http://test.com",
+                         'type': "CALLBACK",
                          'startDate': '2014-01-01T00:00',
                          'endDate': '2014-01-01T00:00'}
 
@@ -102,7 +104,8 @@ class CreateListenerViewsTestCase(unittest.TestCase):
     def test_error_raise_for_invalid_data(self):
         data = {'usernames': ['@aoqfonseca'],
                 'hashtags': ['#testing'],
-                'callback': "http://globo.com",
+                'callback': "http://test.com",
+                'type': "CALLBACK",
                 'startDate': 'aaaa',
                 'endDate': '2014-01-01T00:00'}
 
@@ -134,7 +137,8 @@ class UpdateListenerTestCase(unittest.TestCase):
     def test_update_with_success(self):
         listener_json = {'usernames': ['@aoqfonseca'],
                          'hashtags': ['#testing'],
-                         'callback': "http://globo.com",
+                         'callback': "http://test.com",
+                         'type': "NEW TYPE",
                          'startDate': '2014-01-01T00:00',
                          'endDate': '2014-01-01T00:00'}
 
@@ -149,11 +153,13 @@ class UpdateListenerTestCase(unittest.TestCase):
         # Checking if data is changed
         self.assertEquals(self.listener.usernames, listener_json['usernames'])
         self.assertEquals(self.listener.hashtags, listener_json['hashtags'])
+        self.assertEquals(self.listener.type, listener_json['type'])
 
     def test_error_raise_for_invalid_data(self):
         data = {'usernames': ['@aoqfonseca'],
                 'hashtags': ['#testing'],
                 'callback': "http://globo.com",
+                'type': "CALLBACK",
                 'startDate': 'aaaa',
                 'endDate': '2014-01-01T00:00'}
 

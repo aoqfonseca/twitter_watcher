@@ -14,4 +14,7 @@ run:
 sync_twitter: 
 	@python manage.py start_twitter
 
+start_celery:
+	@celery  multi restart w1 -A twitter_watcher  -l info
+
 
