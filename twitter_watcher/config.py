@@ -13,3 +13,5 @@ class Config(object):
     TOKEN_TWIITER_ID = os.environ.get('TOKEN_TWIITER_ID')
     TOKEN_TWIITER_SECRET = os.environ.get('TOKEN_TWIITER_SECRET')
     SECRET_KEY = 'KeepThisS3cr3t3'
+    BROKER_URL = os.environ.get('CELERY_BROKER_URL',
+                                'redis://localhost:6379/0')
