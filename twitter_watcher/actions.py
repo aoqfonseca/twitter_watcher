@@ -5,7 +5,16 @@ import logging
 log = logging.getLogger(__name__)
 
 
-class Callback(object):
+class BaseAction(object):
+
+    def do(self):
+        raise NotImplementedError('Method need to be implement"')
+
+    def json_data(self):
+        raise NotImplementedError()
+
+
+class Callback(BaseAction):
 
     def send(self):
         try:
@@ -17,7 +26,4 @@ class Callback(object):
             log.error(e)
 
     def url_callback(self):
-        raise NotImplementedError()
-
-    def json_data(self):
         raise NotImplementedError()

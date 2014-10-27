@@ -2,10 +2,24 @@
 import unittest
 import mock
 
-from twitter_watcher.actions import Callback
+from twitter_watcher.actions import BaseAction, Callback
+
+
+class BaseActionTestCase(unittest.TestCase):
+
+    def test_raise_error(self):
+        try:
+            base_action = BaseAction()
+            base_action.do()
+            assert False
+        except NotImplementedError:
+            assert True
 
 
 class CallbackActionTestCase(unittest.TestCase):
+
+    def test_callback_subclass(self):
+        self.assertTrue(issubclass(Callback, BaseAction))
 
     def test_callback_has_method_send(self):
         self.assertTrue(hasattr(Callback, "send"))
