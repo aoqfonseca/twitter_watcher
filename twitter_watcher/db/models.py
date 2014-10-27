@@ -14,15 +14,14 @@ class Listener(Document, ObserverTwitter):
     start_date = DateTimeField(db_field='startDate')
     end_date = DateTimeField(db_field='endDate')
 
-
     def to_json(self):
-    	return {
-    		u'id': str(self.id),
-    		u'usernames': self.usernames,
-    		u'hashtags': self.hashtags,
-    		u'startDate': self.start_date,
-    		u'endDate': self.end_date
-    	}
+        return {
+            u'id': str(self.id),
+            u'usernames': self.usernames,
+            u'hashtags': self.hashtags,
+            u'startDate': self.start_date,
+            u'endDate': self.end_date
+        }
 
     @property
     def url(self):
