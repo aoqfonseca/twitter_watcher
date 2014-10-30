@@ -22,8 +22,8 @@ class CallbackActionTestCase(unittest.TestCase):
         self.assertTrue(issubclass(Callback, BaseAction))
 
     def test_callback_has_method_send(self):
-        self.assertTrue(hasattr(Callback, "send"))
-        self.assertTrue(callable(getattr(Callback, "send")))
+        self.assertTrue(hasattr(Callback, "do"))
+        self.assertTrue(callable(getattr(Callback, "do")))
 
     def test_callback_has_method_json_data(self):
         self.assertTrue(hasattr(Callback, "json_data"))
@@ -61,7 +61,7 @@ class CallbackActionTestCase(unittest.TestCase):
 
         with mock.patch('twitter_watcher.actions.requests') as fake_requests:
             callback = FakeCallback()
-            callback.send()
+            callback.do()
             fake_requests.\
                 post.\
                 assert_called_once_with(callback.url_callback(),

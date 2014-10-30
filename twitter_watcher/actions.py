@@ -16,7 +16,7 @@ class BaseAction(object):
 
 class Callback(BaseAction):
 
-    def send(self):
+    def do(self):
         try:
             url = self.url_callback()
             json = self.json_data()
