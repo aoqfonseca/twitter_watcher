@@ -25,14 +25,6 @@ class SaveTweetActionTestCase(unittest.TestCase):
         self.assertTrue(hasattr(SaveTweet, "do"))
         self.assertTrue(callable(getattr(SaveTweet, "do")))
 
-    def test_url_savetweet_raise_not_implemented(self):
-        try:
-            save_tweet_action = SaveTweet()
-            save_tweet_action.url_callback()
-            assert False
-        except NotImplementedError:
-            assert True
-
     def test_json_data_raise_not_implemented(self):
         try:
             save_tweet_action = SaveTweet()
