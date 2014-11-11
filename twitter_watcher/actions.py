@@ -27,3 +27,7 @@ class Callback(BaseAction):
 
     def url_callback(self):
         raise NotImplementedError()
+
+
+class SaveTweet(BaseAction):
+    pass
