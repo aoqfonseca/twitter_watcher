@@ -33,9 +33,10 @@ class CountersActionTestCase(unittest.TestCase):
         except NotImplementedError:
             assert True
 
-    def test_save_tweet_in_database(self):
-        pass
-
+    def test_counter_type_defined(self):
+        counter_action = Counter()
+        self.assertEquals(counter_action.counter_type, 'user_tweet')
+    
 
 class CallbackActionTestCase(unittest.TestCase):
 
