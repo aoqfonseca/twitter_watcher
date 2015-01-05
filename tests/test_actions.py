@@ -36,7 +36,7 @@ class CountersActionTestCase(unittest.TestCase):
     def test_counter_type_defined(self):
         counter_action = Counter()
         self.assertEquals(counter_action.counter_type, 'user_tweet')
-    
+
 
 class CallbackActionTestCase(unittest.TestCase):
 

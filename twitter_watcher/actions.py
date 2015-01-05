@@ -32,9 +32,9 @@ class Callback(BaseAction):
 class Counter(BaseAction):
 
     counter_type = "user_tweet"
-    
+
     def do(self):
-        """ Implement here: 
+        """ Implement here:
         When this call, increment specific coutner for user
         """
         pass
