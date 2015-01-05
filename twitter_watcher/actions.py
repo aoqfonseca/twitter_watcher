@@ -29,5 +29,5 @@ class Callback(BaseAction):
         raise NotImplementedError()
 
 
-class SaveTweet(BaseAction):
+class Counter(BaseAction):
     pass

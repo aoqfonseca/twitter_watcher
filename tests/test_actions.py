@@ -2,7 +2,7 @@
 import unittest
 import mock
 
-from twitter_watcher.actions import BaseAction, Callback, SaveTweet
+from twitter_watcher.actions import BaseAction, Callback, Counter
 
 
 class BaseActionTestCase(unittest.TestCase):
@@ -16,19 +16,19 @@ class BaseActionTestCase(unittest.TestCase):
             assert True
 
 
-class SaveTweetActionTestCase(unittest.TestCase):
+class CountersActionTestCase(unittest.TestCase):
 
     def test_callback_subclass(self):
-        self.assertTrue(issubclass(SaveTweet, BaseAction))
+        self.assertTrue(issubclass(Counter, BaseAction))
 
     def test_action_has_method(self):
-        self.assertTrue(hasattr(SaveTweet, "do"))
-        self.assertTrue(callable(getattr(SaveTweet, "do")))
+        self.assertTrue(hasattr(Counter, "do"))
+        self.assertTrue(callable(getattr(Counter, "do")))
 
     def test_json_data_raise_not_implemented(self):
         try:
-            save_tweet_action = SaveTweet()
-            save_tweet_action.json_data()
+            counter_action = Counter()
+            counter_action.json_data()
             assert False
         except NotImplementedError:
             assert True
