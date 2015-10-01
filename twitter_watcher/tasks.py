@@ -5,7 +5,6 @@ from twitter_watcher.server import app_celery
 
 
 def call_listener(msg, listener):
-    """ This functio will process each message and listener"""
     listener.on_message(msg)
 
 @app_celery.task

@@ -48,9 +48,9 @@ class TwitterObserverTestCase(unittest.TestCase):
                                    usernames=['@twitterapi'],
                                    hashtags=[])
 
-        observer.send = mock.MagicMock(return_value=True)
+        observer.do = mock.MagicMock(return_value=True)
         observer.on_message(tweet)
-        observer.send.assert_called_once_with()
+        observer.do.assert_called_once_with()
 
     def test_dont_call_send_on_message(self):
 
@@ -61,9 +61,9 @@ class TwitterObserverTestCase(unittest.TestCase):
                                    usernames=['@aoqfonseca'],
                                    hashtags=[])
 
-        observer.send = mock.MagicMock(return_value=True)
+        observer.do = mock.MagicMock(return_value=True)
         observer.on_message(tweet)
-        assert observer.send.call_count == 0
+        assert observer.do.call_count == 0
 
     def test_return_true_for_empty_user_list(self):
         tweets = self.load_fixtures()

@@ -47,7 +47,7 @@ class ObserverTwitter(Callback):
 
         if self.tweet_has_username() and self.tweet_has_hashtags():
             log.debug("Callingback service with message")
-            self.send()
+            self.do()
 
     def json_data(self):
         return self.tweet
